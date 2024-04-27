@@ -1,7 +1,7 @@
 # -------------- Pulling data from test Excel sheet and analyzing -------------- #
 # Importing libraries
 import pandas as pd
-import numpy as np
+#import numpy as np
 
 
 # Gets all categories from the data
@@ -63,9 +63,13 @@ elif task_sel == '2':
     cats = get_categories(raw_transactions)
     print(f'Available categories are: \n{cats}')
 elif task_sel == '3':
-    selected_cat = input('Which category\'s spending do you want to see?')
+    selected_cat = input('Which category\'s spending do you want to see?\n')
     inc, exp, tot = selected_spending(ext_category(raw_transactions, selected_cat))
     print(f'''
     The transaction summary for category {selected_cat} is: 
     Income: {inc}  |  Expenses: {exp}  |  Total: {tot}
     ''')
+elif task_sel == '4':
+    selected_account = input('Which account would you like to see?\n')
+    bal = account_balance(raw_transactions, selected_account)
+    print(f'{selected_account}\'s balance: ', bal)
